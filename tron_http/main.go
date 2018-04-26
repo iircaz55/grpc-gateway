@@ -9,7 +9,6 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-
 	gw "github.com/tronprotocol/grpc-gateway/api"
 
 	"fmt"
@@ -19,6 +18,7 @@ var (
 	port = flag.Int("port",50051, "port of your tron grpc service" )
 	host = flag.String("host", "localhost", "host of your tron grpc service")
 	listen = flag.Int("listen", 18890, "the port that http server listen")
+	//debug = flag.Bool("debug", false, "display the printable output")
 
 )
 
@@ -34,6 +34,8 @@ func run() error {
 
 	fmt.Printf("grpc server:  %s\n", grpcEndpoint)
 	fmt.Printf("http port  :  %d\n", *listen)
+
+	fmt.Printf("test url   :  http://localhost:%d/wallet/getblockbynum?num=2\n", *listen)
 
 	err := gw.RegisterWalletHandlerFromEndpoint(ctx, mux, grpcEndpoint, opts)
 	if err != nil {

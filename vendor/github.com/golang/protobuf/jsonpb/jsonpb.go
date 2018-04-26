@@ -50,10 +50,14 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
 	"github.com/golang/protobuf/proto"
 
 	stpb "github.com/golang/protobuf/ptypes/struct"
+	"flag"
+)
+
+var (
+	printable = flag.Bool("printable", false, "display the printable output")
 )
 
 // Marshaler is a configurable object for converting between
@@ -460,18 +464,20 @@ func (m *Marshaler) marshalValue(out *errWriter, prop *proto.Properties, v refle
 		return out.err
 	}
 
-	//if v.Kind() == reflect.Slice && v.Type().Elem().Kind() == reflect.Uint8 {
-	//	realValue := fmt.Sprintf("\"%s\"", v)
-	//	for _, r := range realValue {
-	//		if r > 126 {
-	//			realValue = fmt.Sprintf("\"%x\"", v)
-	//			break
-	//		}
-	//	}
-	//
-	//	out.write(realValue)
-	//	return out.err
-	//}
+	if *printable {
+		if v.Kind() == reflect.Slice && v.Type().Elem().Kind() == reflect.Uint8 {
+			realValue := fmt.Sprintf("\"%s\"", v)
+			for _, r := range realValue {
+				if r > 126 {
+					realValue = fmt.Sprintf("\"%x\"", v)
+					break
+				}
+			}
+
+			out.write(realValue)
+			return out.err
+		}
+	}
 
 	// Handle repeated elements.
 	if v.Kind() == reflect.Slice && v.Type().Elem().Kind() != reflect.Uint8 {
