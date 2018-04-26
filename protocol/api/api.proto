@@ -12,35 +12,35 @@ option go_package = "github.com/tronprotocol/grpc-gateway/api";
 
 service Wallet {
 
-  rpc GetAccount (Account) returns (Account) {
-    option (google.api.http) = {
+    rpc GetAccount (Account) returns (Account) {
+        option (google.api.http) = {
       post: "/wallet/getaccount"
       body: "*"
       additional_bindings {
         get: "/wallet/getaccount"
       }
     };
-  };
+    };
 
-  rpc CreateTransaction (TransferContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc CreateTransaction (TransferContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/createtransaction"
       body: "*"
       additional_bindings {
         get: "/wallet/createtransaction"
       }
     };
-  };
+    };
 
-  rpc BroadcastTransaction (Transaction) returns (Return) {
-    option (google.api.http) = {
+    rpc BroadcastTransaction (Transaction) returns (Return) {
+        option (google.api.http) = {
       post: "/wallet/broadcasttransaction"
       body: "*"
     };
-  };
+    };
 
-  rpc ListAccounts (EmptyMessage) returns (AccountList) {
-    option (google.api.http) = {
+    rpc ListAccounts (EmptyMessage) returns (AccountList) {
+        option (google.api.http) = {
       post: "/wallet/listaccounts"
       body: "*"
       additional_bindings {
@@ -48,210 +48,210 @@ service Wallet {
       }
     };
 
-  };
+    };
 
-  rpc UpdateAccount (AccountUpdateContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc UpdateAccount (AccountUpdateContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/updateaccount"
       body: "*"
     };
-  };
+    };
 
-  rpc CreateAccount (AccountCreateContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc CreateAccount (AccountCreateContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/createaccount"
       body: "*"
     };
-  };
+    };
 
-  rpc VoteWitnessAccount (VoteWitnessContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc VoteWitnessAccount (VoteWitnessContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/votewitnessaccount"
       body: "*"
     };
-  };
+    };
 
-  rpc CreateAssetIssue (AssetIssueContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc CreateAssetIssue (AssetIssueContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/createassetissue"
       body: "*"
     };
-  };
+    };
 
-  rpc ListWitnesses (EmptyMessage) returns (WitnessList) {
-    option (google.api.http) = {
+    rpc ListWitnesses (EmptyMessage) returns (WitnessList) {
+        option (google.api.http) = {
       post: "/wallet/listwitnesses"
       body: "*"
       additional_bindings {
         get: "/wallet/listwitnesses"
       }
     };
-  };
+    };
 
-  rpc UpdateWitness (WitnessUpdateContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc UpdateWitness (WitnessUpdateContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/updatewitness"
       body: "*"
     };
-  };
+    };
 
-  rpc CreateWitness (WitnessCreateContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc CreateWitness (WitnessCreateContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/createwitness"
       body: "*"
     };
-  };
+    };
 
-  rpc TransferAsset (TransferAssetContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc TransferAsset (TransferAssetContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/transferasset"
       body: "*"
     };
-  }
+    }
 
-  rpc ParticipateAssetIssue (ParticipateAssetIssueContract) returns (Transaction) {
-    option (google.api.http) = {
+    rpc ParticipateAssetIssue (ParticipateAssetIssueContract) returns (Transaction) {
+        option (google.api.http) = {
       post: "/wallet/participateassetissue"
       body: "*"
     };
-  }
+    }
 
-  rpc ListNodes (EmptyMessage) returns (NodeList) {
-    option (google.api.http) = {
+    rpc ListNodes (EmptyMessage) returns (NodeList) {
+        option (google.api.http) = {
       post: "/wallet/listnodes"
       body: "*"
       additional_bindings {
         get: "/wallet/listnodes"
       }
     };
-  }
-  rpc GetAssetIssueList (EmptyMessage) returns (AssetIssueList) {
-    option (google.api.http) = {
+    }
+    rpc GetAssetIssueList (EmptyMessage) returns (AssetIssueList) {
+        option (google.api.http) = {
       post: "/wallet/getassetissuelist"
       body: "*"
       additional_bindings {
         get: "/wallet/getassetissuelist"
       }
     };
-  }
-  rpc GetAssetIssueByAccount (Account) returns (AssetIssueList) {
-    option (google.api.http) = {
+    }
+    rpc GetAssetIssueByAccount (Account) returns (AssetIssueList) {
+        option (google.api.http) = {
       post: "/wallet/getassetissuebyaccount"
       body: "*"
     };
-  }
-  rpc GetAssetIssueByName (BytesMessage) returns (AssetIssueContract) {
-    option (google.api.http) = {
+    }
+    rpc GetAssetIssueByName (BytesMessage) returns (AssetIssueContract) {
+        option (google.api.http) = {
       post: "/wallet/getassetissuebyname"
       body: "*"
       additional_bindings {
         get: "/wallet/getassetissuebyname"
       }
     };
-  }
-  rpc GetNowBlock (EmptyMessage) returns (Block) {
-    option (google.api.http) = {
+    }
+    rpc GetNowBlock (EmptyMessage) returns (Block) {
+        option (google.api.http) = {
       post: "/wallet/getnowblock"
       body: "*"
       additional_bindings {
         get: "/wallet/getnowblock"
       }
     };
-  }
-  rpc GetBlockByNum (NumberMessage) returns (Block) {
-    option (google.api.http) = {
+    }
+    rpc GetBlockByNum (NumberMessage) returns (Block) {
+        option (google.api.http) = {
       post: "/wallet/getblockbynum"
       body: "*"
       additional_bindings {
         get: "/wallet/getblockbynum"
       }
     };
-  }
-  rpc TotalTransaction (EmptyMessage) returns (NumberMessage) {
-    option (google.api.http) = {
+    }
+    rpc TotalTransaction (EmptyMessage) returns (NumberMessage) {
+        option (google.api.http) = {
       post: "/wallet/totaltransaction"
       body: "*"
       additional_bindings {
         get: "/wallet/totaltransaction"
       }
     };
-  }
+    }
 };
 
 
 service WalletSolidity {
 
-  rpc GetAccount (Account) returns (Account) {
+    rpc GetAccount (Account) returns (Account) {
 
-  };
+    };
 
-  rpc ListAccounts (EmptyMessage) returns (AccountList) {
+    rpc ListAccounts (EmptyMessage) returns (AccountList) {
 
-  };
+    };
 
-  rpc ListWitnesses (EmptyMessage) returns (WitnessList) {
+    rpc ListWitnesses (EmptyMessage) returns (WitnessList) {
 
-  };
+    };
 
-  rpc ListNodes (EmptyMessage) returns (NodeList) {
+    rpc ListNodes (EmptyMessage) returns (NodeList) {
 
-  }
-  rpc GetAssetIssueList (EmptyMessage) returns (AssetIssueList) {
+    }
+    rpc GetAssetIssueList (EmptyMessage) returns (AssetIssueList) {
 
-  }
-  rpc GetAssetIssueListByTimestamp (NumberMessage) returns (AssetIssueList) {
+    }
+    rpc GetAssetIssueListByTimestamp (NumberMessage) returns (AssetIssueList) {
 
-  }
-  rpc GetAssetIssueByAccount (Account) returns (AssetIssueList) {
+    }
+    rpc GetAssetIssueByAccount (Account) returns (AssetIssueList) {
 
-  }
-  rpc GetAssetIssueByName (BytesMessage) returns (AssetIssueContract) {
+    }
+    rpc GetAssetIssueByName (BytesMessage) returns (AssetIssueContract) {
 
-  }
-  rpc GetNowBlock (EmptyMessage) returns (Block) {
+    }
+    rpc GetNowBlock (EmptyMessage) returns (Block) {
 
-  }
-  rpc GetBlockByNum (NumberMessage) returns (Block) {
+    }
+    rpc GetBlockByNum (NumberMessage) returns (Block) {
 
-  }
-  //get transaction
-  rpc TotalTransaction (EmptyMessage) returns (NumberMessage) {
+    }
+    //get transaction
+    rpc TotalTransaction (EmptyMessage) returns (NumberMessage) {
 
-  }
-  rpc getTransactionById (BytesMessage) returns (Transaction) {
+    }
+    rpc getTransactionById (BytesMessage) returns (Transaction) {
 
-  }
-  rpc getTransactionsByTimestamp (TimeMessage) returns (TransactionList) {
+    }
+    rpc getTransactionsByTimestamp (TimeMessage) returns (TransactionList) {
 
-  }
-  rpc getTransactionsFromThis (Account) returns (TransactionList) {
+    }
+    rpc getTransactionsFromThis (Account) returns (TransactionList) {
 
-  }
-  rpc getTransactionsToThis (Account) returns (NumberMessage) {
+    }
+    rpc getTransactionsToThis (Account) returns (NumberMessage) {
 
-  }
+    }
 };
 
 // the api of tron's db
 service Database {
-  // for tapos
-  rpc getBlockReference (EmptyMessage) returns (BlockReference) {
+    // for tapos
+    rpc getBlockReference (EmptyMessage) returns (BlockReference) {
 
-  }
-  rpc GetDynamicProperties (EmptyMessage) returns (DynamicProperties) {
+    }
+    rpc GetDynamicProperties (EmptyMessage) returns (DynamicProperties) {
 
-  }
-  rpc GetNowBlock (EmptyMessage) returns (Block) {
+    }
+    rpc GetNowBlock (EmptyMessage) returns (Block) {
 
-  }
-  rpc GetBlockByNum (NumberMessage) returns (Block) {
+    }
+    rpc GetBlockByNum (NumberMessage) returns (Block) {
 
-  }
+    }
 };
 
 message BlockReference {
-  int64 block_num = 1;
-  bytes block_hash = 2;
+    int64 block_num = 1;
+    bytes block_hash = 2;
 }
 
 // the api of tron's network such as node list.
@@ -261,52 +261,52 @@ service Network {
 
 
 message Return {
-  bool result = 1;
+    bool result = 1;
 }
 
 message AccountList {
-  repeated Account accounts = 1;
+    repeated Account accounts = 1;
 }
 
 message WitnessList {
-  repeated Witness witnesses = 1;
+    repeated Witness witnesses = 1;
 }
 
 message AssetIssueList {
-  repeated AssetIssueContract assetIssue = 1;
+    repeated AssetIssueContract assetIssue = 1;
 }
 message BlockList {
-  repeated Block block = 1;
+    repeated Block block = 1;
 }
 message TransactionList {
-  repeated Transaction transaction = 1;
+    repeated Transaction transaction = 1;
 }
 
 // Gossip node list
 message NodeList {
-  repeated Node nodes = 1;
+    repeated Node nodes = 1;
 }
 
 // Gossip node
 message Node {
-  Address address = 1;
+    Address address = 1;
 }
 
 // Gossip node address
 message Address {
-  bytes host = 1;
-  int32 port = 2;
+    bytes host = 1;
+    int32 port = 2;
 }
 
 message EmptyMessage {
 }
 message NumberMessage {
-  int64 num = 1;
+    int64 num = 1;
 }
 message BytesMessage {
-  bytes value = 1;
+    bytes value = 1;
 }
 message TimeMessage {
-  int64 beginInMilliseconds = 1;
-  int64 endInMilliseconds = 2;
+    int64 beginInMilliseconds = 1;
+    int64 endInMilliseconds = 2;
 }
