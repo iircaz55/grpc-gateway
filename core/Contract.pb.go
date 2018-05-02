@@ -27,7 +27,10 @@ It has these top-level messages:
 	PongMessage
 	FindNeighbours
 	Neighbours
+	AccountId
 	Account
+	Acuthrity
+	Permision
 	Witness
 	TXOutput
 	TXInput
